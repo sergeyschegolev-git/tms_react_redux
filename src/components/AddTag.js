@@ -1,28 +1,28 @@
-import { connect } from 'react-redux';
-import { addTag as addTagAction } from '../store/actions/tagsActions';
 import { useCallback, useState } from 'react';
+import { connect } from 'react-redux';
+import { addTag as addTagAction } from '../store/actions';
 
 export const AddTagComponent = ({ addTag }) => {
   const [tag, setTag] = useState('');
 
-  const changeHandler = useCallback((event) => {
+  const inputChangeHandler = (event) => {
     setTag(event.target.value);
-  }, []);
+  }
 
-  const clickHandler = useCallback(() => {
-    addTag(tag);
+  const buttonClickHandler = useCallback(() => {
+    addTag(tag)
   }, [addTag, tag]);
 
   return (
     <div>
-      <input onChange={changeHandler} type="text" />
-      <button onClick={clickHandler}>Add tag</button>
+      <input type="text" onChange={inputChangeHandler} />
+      <button onClick={buttonClickHandler}>Add Tag</button>
     </div>
   )
-};
+}
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = {
   addTag: addTagAction,
-})
+}
 
-export const AddTag = connect(null, mapDispatchToProps)(AddTagComponent)
+export const AddTag = connect(null, mapDispatchToProps)(AddTagComponent);

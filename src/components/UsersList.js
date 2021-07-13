@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 export const UsersList = () => {
-  const users = useSelector((state => state.users));
+  const users = useSelector((state) => state.users);
 
   return (
     <div>

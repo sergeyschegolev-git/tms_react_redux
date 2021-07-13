@@ -1,22 +1,22 @@
 import { useDispatch } from 'react-redux';
-import { addUser as addUserAction } from '../store/actions/usersActions';
 import { useCallback, useState } from 'react';
+import { addUser } from '../store/actions/usersActions';
 
 export const AddUser = () => {
-  const [userName, setUserName] = useState('');
+  const [user, setUser] = useState('old value');
   const dispatch = useDispatch();
 
-  const buttonClickHandler = useCallback(() => {
-    dispatch(addUserAction(userName))
-  }, [dispatch, userName])
+  const inputChangeHandler = (event) => {
+    setUser(event.target.value);
+  }
 
-  const inputChangeHandler = useCallback((event) => {
-    setUserName(event.target.value);
-  }, [])
+  const buttonClickHandler = useCallback(() => {
+    dispatch(addUser(user));
+  }, [dispatch, user]);
 
   return (
     <div>
-      <input onChange={inputChangeHandler} type="text" />
+      <input type="text" onChange={inputChangeHandler} />
       <button onClick={buttonClickHandler}>Add user</button>
     </div>
   )

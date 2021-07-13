@@ -1,12 +1,5 @@
 .users-section {
-  display: flex;
-  width: 500px;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.tags-section {
-  display: flex;
-  width: 500px;
-  justify-content: space-between;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
 }

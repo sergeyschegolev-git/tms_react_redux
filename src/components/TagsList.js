@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 
+
 export const TagsListComponent = ({ tags }) => {
+
   return (
     <div>
       {tags.map((tag) => (
@@ -11,7 +13,8 @@ export const TagsListComponent = ({ tags }) => {
 }
 
 const mapStateToProps = (state) => ({
-  tags: state.tags
-})
+  tags: state.tags,
+});
+
 
 export const TagsList = connect(mapStateToProps)(TagsListComponent);
